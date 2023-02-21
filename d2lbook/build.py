@@ -511,7 +511,7 @@ def _process_and_eval_notebook(scheduler, input_fn, output_fn, run_cells,
         _job(nb, output_fn, run_cells, timeout, lang)
     else:
         # use at most 2 gpus to eval a notebook
-        num_gpus = resource.get_notebook_gpus(nb, 2)
+        num_gpus = 1#resource.get_notebook_gpus(nb, 2)
         scheduler.add(1, num_gpus, target=_job,
                       args=(nb, output_fn, run_cells, timeout, lang),
                       description=f'Evaluating {input_fn}')
