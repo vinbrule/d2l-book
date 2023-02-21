@@ -99,8 +99,6 @@ class Scheduler():
         """Add tasks into the queue."""
         assert not (num_cpus == 0 and num_gpus == 0), \
                 'Need at least one CPU or GPU'
-        assert num_cpus <= self._num_cpus and num_gpus <= self._num_gpus, \
-            f'Not enough resources (CPU {self._num_cpus}, GPU {self._num_gpus} ) to run the task (CPU {num_cpus}, GPU {num_gpus})'
 
         if not description:
             description = f'Target {target} with args {args}'
